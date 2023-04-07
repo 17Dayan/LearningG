@@ -1,0 +1,43 @@
+ion-menu-button {
+    color: var(--ion-color-primary);
+  }
+
+  .content {
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: center;
+    padding: 20px;
+  }
+  ion-footer ion-toolbar {
+    display: flex;
+    justify-content: center;
+  }
+  ion-img{
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  
+
+  
+  
+ /* Estilos para pantallas pequeñas, como celulares */
+@media only screen and (max-width: 767px) {
+  /* Centrar la imagen y el texto */
+  #logo {
+    max-width: 80%;
+  }
+  p {
+    font-size: 16px;
+  }
+}
+
+/* Estilos para pantallas grandes, como computadoras */
+@media only screen and (min-width: 768px) {
+  #logo {
+    max-width: 200px;
+  }
+  p {
+    font-size: 24px;
+  }
+}

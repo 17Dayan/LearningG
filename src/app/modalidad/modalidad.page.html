@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Modalidades de grado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title id="texto">Acuerdo CAC No. 053-19 (31 de julio de 2019) por el cual se unifican las políticas de graduación para el instituto universitario de la paz.</ion-card-title>
+      <ion-card-subtitle id="subtitulo">Se establecen 7 modalidades de grado</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <ion-icon name="checkmark-circle-outline"></ion-icon>
+          </ion-thumbnail>
+         <button routerLink="/monografia"> <ion-label>Monografia de grado</ion-label></button> 
+        </ion-item>
+  
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <ion-icon name="checkmark-circle-outline"></ion-icon>
+          </ion-thumbnail>
+         <button routerLink="/postgrado"><ion-label>Programa de postgrado</ion-label> </button> 
+        </ion-item>
+  
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <ion-icon name="checkmark-circle-outline"></ion-icon>
+          </ion-thumbnail>
+         <button routerLink="/pasantia-nacional"><ion-label>Pasantias nacionaes e internacionales</ion-label></button> 
+        </ion-item>
+  
+        <ion-item lines="none">
+          <ion-thumbnail slot="start">
+            <ion-icon name="checkmark-circle-outline"></ion-icon>
+          </ion-thumbnail>
+         <button routerLink="/investigacion"><ion-label>Pasantia de investigación</ion-label></button> 
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-thumbnail slot="start">
+            <ion-icon name="checkmark-circle-outline"></ion-icon>
+          </ion-thumbnail>
+          <button routerLink="/sem-internacional"><ion-label>Seminario internacionalización</ion-label> </button> 
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-thumbnail slot="start">
+            <ion-icon name="checkmark-circle-outline"></ion-icon>
+          </ion-thumbnail>
+          <button routerLink="/sem-actualizacion"><ion-label>Seminario de actualización y perfeccionamiento en ciencia, tecnología e innovación.</ion-label> </button>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-thumbnail slot="start">
+            <ion-icon name="checkmark-circle-outline"></ion-icon>
+          </ion-thumbnail>
+         <button routerLink="/inv-creacion"><ion-label>Investigación-creación o de creación</ion-label></button> 
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+

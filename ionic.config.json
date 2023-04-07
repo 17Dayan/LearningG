@@ -1,0 +1,7 @@
+{
+  "name": "LearningG",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

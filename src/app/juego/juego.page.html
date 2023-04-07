@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>JUEGO QUIZ GAME</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-slides>
+          <ion-slide *ngFor="let question of questions">
+            <ion-card>
+              <ion-card-header>
+                <img [src]="question.image" *ngIf="question.image" style="max-width: 30%;" />
+                <video [src]="question.video" *ngIf="question.video" style="max-width: 30%;" controls></video>
+                <ion-card-title>{{ question.question }}</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-list>
+                  <ion-radio-group [(ngModel)]="question.selectedAnswer">
+                    <ion-item>
+                      <ion-label>{{ question.option1 }}</ion-label>
+                      <ion-radio [value]="1"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>{{ question.option2 }}</ion-label>
+                      <ion-radio [value]="2"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>{{ question.option3 }}</ion-label>
+                      <ion-radio [value]="3"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>{{ question.option4 }}</ion-label>
+                      <ion-radio [value]="4"></ion-radio>
+                    </ion-item>
+                  </ion-radio-group>
+                </ion-list>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+        <ion-button expand="block" (click)="submitQuiz()">Enviar respuestas</ion-button>
+        <ion-item>
+          <ion-label>Puntaje:</ion-label>
+          <ion-text>{{ score }}/{{ questions.length }}</ion-text>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
