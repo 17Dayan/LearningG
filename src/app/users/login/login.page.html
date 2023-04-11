@@ -16,16 +16,18 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <form (ngSubmit)="login()">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
     <p> 
       <ion-item lines="full" border="none">
         <ion-label position="floating">Correo</ion-label>
-        <input type="email" [(ngModel)]="email" name="email">
+        <input type="text" formControlName="email" name="email" />
+
+
 
       </ion-item>
       <ion-item lines="full" border="none">
         <ion-label position="floating">Contraseña</ion-label>
-        <input type="password" [(ngModel)]="password" name="password">
+        <input type="password" formControlName="password" name="password">
       </ion-item>
     </p>
    

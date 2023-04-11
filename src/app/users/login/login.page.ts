@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,35 +9,44 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
+ 
+ 
   email!: string;
   password!: string;
   errormesage!: string;
+  loginForm!: FormGroup;
 
-  constructor(private router: Router) { 
-    this.email = '';
-    this.password = '';
-  }
+
+  constructor(private router: Router, private fb: FormBuilder) {}
+  
 
   ngOnInit() {
-  
+    this.loginForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
 
   login() {
-    console.log('email:', this.email);
-    console.log('password:', this.password);
+    const email = this.loginForm.value.email;
+    const password = this.loginForm.value.password;
+    const savedEmail = localStorage.getItem('email');
+    const savedPassword = localStorage.getItem('password');
   
-    const email = localStorage.getItem('email');
-    const password = localStorage.getItem('password') || ''; // Inicializar a un string vacío si no existe en localStorage
-    
-    localStorage.setItem('email', 'camila@unipaz.edu.co');
-    localStorage.setItem('password', '12345camila');
-    
-    if (this.email && this.email.trim() === email && this.password && this.password.trim() === password) {
+    if (this.loginForm.valid && this.loginForm.value.email === email && this.loginForm.value.password === password) {
       console.log('Ingreso exitoso');
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('email', this.loginForm.value.email); // guardar el email en localStorage
       this.router.navigate(['/modalidad']);
     } else {
       alert('Correo o contraseña incorrecta');
     }
+  }
+  
+  
+  logout() {
+    localStorage.removeItem('isLoggedIn'); // Eliminar la clave "isLoggedIn" del local storage
+    this.router.navigate(['/login']); // Redirigir al usuario a la página de login
   }
   
 
