@@ -23,6 +23,31 @@ export class JuegoPage implements OnInit {
   text: string;
   correctAnswerIndex: number;
   selectedAnswer: undefined;
+  controller = {
+    points: 0,
+    correctAnswerIndex: -1,
+
+    handleCorrectAnswe(){
+      this.points += 10;
+    },
+
+    handleAnswerSelection(index: number) {
+      if (index === this.correctAnswerIndex) {
+        this.handleCorrectAnswe(); 
+        
+      } else {
+        this.onAnswerSelected(false); 
+      }
+    },
+
+    onAnswerSelected(correct: boolean) {
+      if (correct) {
+        this.points += 10; // aumenta los puntos en 10 si la respuesta es correcta
+      }
+    }
+  }
+
+  
 
   constructor() {
     this.text = '';

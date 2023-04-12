@@ -1,0 +1,38 @@
+/* Estilos para el título de la página */
+ion-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* Estilos para la lista de instrucciones */
+  ion-list {
+    margin-top: 30px;
+  }
+  
+  ion-item {
+    margin-bottom: 10px;
+  }
+  
+  ion-label {
+    font-size: 16px;
+  }
+  
+  /* Estilos para el contenedor de la imagen */
+  #container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  /* Estilos para la imagen */
+  #logo {
+    height: 100px;
+    width: auto;
+    margin: 0 auto;
+  }
+  
+  /* Estilos para la barra de herramientas del encabezado */
+  ion-toolbar {
+    --background: #0f1078; /* cambia el color de fondo de la barra de herramientas */
+    --color: white; /* cambia el color del texto en la barra de herramientas */
+  }

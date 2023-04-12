@@ -1,14 +1,57 @@
-ion-slides {
-  height: 80vh;
+/* Estilos para el header */
+.header-background {
+  background-color: #1c2692;
 }
 
-ion-slide {
+.header-background ion-img {
+  max-width: 200px;
+}
+
+/* Estilos para el contenido */
+.page-background {
+  background-color: #1c3db1;
+}
+
+.quiz-slide {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.quiz-slide.slide-enter-active {
+  opacity: 1;
+}
+
+
+.juego-page {
+  background-image: url('../../assets/img/consola.jpg');
+  
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.ion-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  height: 100%;
+  margin-bottom: 20px;
+  
+  
+}
+
+ion-card{
+  background-image: url('../../assets/videos/game.gif');
+}
+
+.quiz-slide ion-card-content {
+  overflow-y: scroll;
+  max-height: 50vh; /* ajustar según sea necesario */
+}
+ion-button {
+  margin-bottom: 10px;
+}
+ion-card-title {
+  font-size: 20px;
+  --color: white;
 }
 
 ion-list {
@@ -78,5 +121,18 @@ ion-radio-group {
   .submit-button {
     margin-top: 3rem;
     font-size: 3rem;
+  }
+}
+
+.slide-enter-active {
+  animation: slide-in 0.3s ease-out;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
   }
 }
