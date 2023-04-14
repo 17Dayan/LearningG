@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Question as QuizQuestion } from '../models/question.model';
+import { AlertController } from '@ionic/angular';
+
 
 interface Question {
   question: string;
@@ -23,31 +25,8 @@ export class JuegoPage implements OnInit {
   text: string;
   correctAnswerIndex: number;
   selectedAnswer: undefined;
-  controller = {
-    points: 0,
-    correctAnswerIndex: -1,
-
-    handleCorrectAnswe(){
-      this.points += 10;
-    },
-
-    handleAnswerSelection(index: number) {
-      if (index === this.correctAnswerIndex) {
-        this.handleCorrectAnswe(); 
-        
-      } else {
-        this.onAnswerSelected(false); 
-      }
-    },
-
-    onAnswerSelected(correct: boolean) {
-      if (correct) {
-        this.points += 10; // aumenta los puntos en 10 si la respuesta es correcta
-      }
-    }
-  }
-
   
+
 
   constructor() {
     this.text = '';
@@ -55,6 +34,7 @@ export class JuegoPage implements OnInit {
     this.correctAnswerIndex = -1;
     this.selectedAnswer = undefined;
   }
+ 
 
     public questions: Question[] = [
       {
@@ -68,7 +48,7 @@ export class JuegoPage implements OnInit {
         selectedAnswer: undefined,
       },
       {
-        question: 'Una de las modalidades de grado en el instituto universitario de la paz, es:',
+        question: '¿Cuál es una de las modalidades de grado ofrecidas por el Instituto Universitario de la Paz?',
         image: '../../assets/img/cogrado.png',
         option1: 'Perfeccionamiento en ciencia, tecnología e innovación.',
         option2: 'Trabajos investigativos',
@@ -88,7 +68,7 @@ export class JuegoPage implements OnInit {
         selectedAnswer: undefined,
       },
       {
-        question: 'Los estudiantes que se encuentren vinculados a los diferentes semilleros de investigación podrán optar por una pasantía de investigación (nacional o internacional), en el marco de las convocatorias de jóvenes investigadores y/o proyectos de investigación liderados porla institución o una entidad aliada',
+        question: '¿Cuál es la opcion disponible para los estudiantes vinculados a los diferentes semilleros de investigación en el marco de convocatorias de jóvenes investigadores y/o proyectos de investigación liderados por la institución o una entidad aliada? ',
         video: '../../assets/videos/investigacion.mp4',
         option1: 'Pasantía de investigación.',
         option2: 'Pasantías nacionales e internacionales.',
@@ -98,7 +78,7 @@ export class JuegoPage implements OnInit {
         selectedAnswer: undefined,
       },
       {
-        question: 'Para esta modalidad aplican: Obra, Evento artístico, Espectáculo escénico, Piezas sonoras,Producto, Diseño, Artefacto, Objetos plásticos visuales.',
+        question: 'Para esta modalidad aplican: Obra, Evento artístico, Espectáculo escénico, Piezas sonoras,Producto, Diseño, Artefacto, Objetos plásticos visuales. ¿Cual es la opcion correcta?.',
         video: '../../assets/videos/creacion.mp4',
         option1: 'Investigación-creación o de creación.',
         option2: 'Seminario de actualización y perfeccionamiento en ciencia, tecnología e innovación.',
@@ -164,7 +144,7 @@ export class JuegoPage implements OnInit {
   
     public score = 0;
   
-    submitQuiz() {
+   async submitQuiz() {
       this.score = 0;
       for (const question of this.questions) {
         if (question.selectedAnswer === question.correctAnswer) {

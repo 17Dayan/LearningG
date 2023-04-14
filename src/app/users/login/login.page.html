@@ -16,15 +16,15 @@
 <ion-content>
   <form [formGroup]="loginForm" (ngSubmit)="login()">
     <p> 
+      <ion-label position="floating">Correo</ion-label>
       <ion-item lines="full" border="none">
-        <ion-label position="floating">Correo</ion-label>
+        
         <input type="text" formControlName="email" name="email" />
-
-
-
       </ion-item>
+
+      <ion-label position="floating">Contraseña</ion-label>
       <ion-item lines="full" border="none">
-        <ion-label position="floating">Contraseña</ion-label>
+      
         <input type="password" formControlName="password" name="password">
       </ion-item>
     </p>
@@ -32,7 +32,7 @@
     <p>
       <ion-row>
         <ion-col>
-          <ion-button type="submit" color="success" expand="block">Sign In</ion-button>
+          <ion-button type="submit" color="success" expand="block">Entrar</ion-button>
           <ion-button expand="full" href="pasword" color="tertiary">Recuperar contraseña</ion-button>
         </ion-col>
       </ion-row>

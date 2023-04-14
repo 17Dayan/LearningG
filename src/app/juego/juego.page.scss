@@ -1,16 +1,12 @@
 /* Estilos para el header */
-.header-background {
-  background-color: #1c2692;
-}
 
 .header-background ion-img {
   max-width: 200px;
 }
 
 /* Estilos para el contenido */
-.page-background {
-  background-color: #1c3db1;
-}
+
+
 
 .quiz-slide {
   opacity: 0;
@@ -34,12 +30,13 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
-  
-  
 }
-
+ion-card-title{
+  font-size: 13px !important;
+}
 ion-card{
   background-image: url('../../assets/videos/game.gif');
+  margin: 0 auto;
 }
 
 .quiz-slide ion-card-content {
@@ -82,6 +79,12 @@ ion-radio-group {
     margin-top: 1.5rem;
     font-size: 1.5rem;
   }
+
+  ion-label{
+    white-space: normal !important;
+    font-size: 10px !important;
+  }
+  
 }
 
 /* Estilos para pantallas medianas y grandes en modo retrato */
@@ -102,6 +105,12 @@ ion-radio-group {
     margin-top: 2rem;
     font-size: 2rem;
   }
+
+  ion-label{
+    white-space: normal !important;
+    font-size: 10px !important;
+  }
+  
 }
 
 /* Estilos para pantallas medianas y grandes en modo apaisado */
@@ -122,6 +131,11 @@ ion-radio-group {
     margin-top: 3rem;
     font-size: 3rem;
   }
+  ion-label{
+    white-space: normal !important;
+    font-size: 10px !important;
+  }
+  
 }
 
 .slide-enter-active {

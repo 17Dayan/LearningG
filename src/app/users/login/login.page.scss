@@ -25,11 +25,37 @@
     padding-bottom: 90px;
     padding-left: 45px ;
 }
-ion-item {
-  --background: transparent; /* Cambia el color de fondo del elemento de entrada */
-  --border-width: 0; /* Oculta el borde del elemento de entrada */
+
+/* Estilos generales del formulario */
+form {
+  max-width: 400px;
+  margin: auto;
 }
 
+/* Estilos de los elementos de entrada */
+ion-item {
+  margin-bottom: 16px;
+}
+
+input {
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 8px;
+  font-size: 16px;
+  width: 100%;
+}
+
+/* Estilos del botón de inicio de sesión */
+ion-button[type="submit"] {
+  margin-top: 24px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Estilos del botón de recuperación de contraseña */
+ion-button[href="pasword"] {
+  font-size: 14px;
+}
 
 
 
