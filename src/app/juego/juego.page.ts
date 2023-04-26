@@ -10,7 +10,7 @@ interface Question {
   option3: string;
   option4: string;
   correctAnswer: number;
-  selectedAnswer?: number;
+  selectedAnswer?: number; 
   image?: string;
   video?: string;
 }
