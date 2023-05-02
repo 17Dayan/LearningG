@@ -67,6 +67,7 @@ const routes: Routes = [
     path: 'juego2',
     loadChildren: () => import('./juego2/juego2.module').then( m => m.Juego2PageModule)
   },
+  
  
 ];
 

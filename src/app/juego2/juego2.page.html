@@ -27,15 +27,14 @@
           <ion-row>
             <ion-col size="12" class="details">
               <ion-item lines="none">
-                <ion-label>Hint:</ion-label>
-                <ion-label>{{ hint }}</ion-label>
+                <ion-label>Pista: {{ word.hint }}</ion-label>
               </ion-item>
               <ion-item lines="none">
-                <ion-label>Remaining guesses:</ion-label>
+                <ion-label>Numero de intentos disponibles:</ion-label>
                 <ion-label>{{ guessesLeft }}</ion-label>
               </ion-item>
               <ion-item lines="none">
-                <ion-label>Wrong letters:</ion-label>
+                <ion-label>Letras incorrectas:</ion-label>
                 <ion-label>{{ wrongLetters }}</ion-label>
               </ion-item>
             </ion-col>
@@ -47,12 +46,12 @@
               </ion-item>
             </ion-col>
             <ion-col size="6" class="button-col">
-              <ion-button color="primary" expand="block" (click)="checkGuess()">Guess</ion-button>
+              <ion-button color="primary" expand="block" (click)="checkGuess()">Adivinar</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>
       </ion-card-content>
     </ion-card>
-    <ion-button color="secondary" expand="block" (click)="reset()">Reset Game</ion-button>
+    <ion-button color="secondary" expand="block" (click)="reset()">Reiniciar Juego</ion-button>
   </ion-content>
   

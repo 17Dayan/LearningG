@@ -1,9 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
+    <ion-button slot="start" href="login">
+      <ion-icon name="arrow-back-circle-outline" ></ion-icon>
+    </ion-button>
     <ion-title>Registrar</ion-title>
+    
   </ion-toolbar>
 </ion-header>
 
@@ -15,6 +16,7 @@
     <ion-img id="" src="../../assets/img/Learngaming2.png" alt=""></ion-img>
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
   <form [formGroup]="formularioRegistro" (ngSubmit)="registrarUsuario()">
     <ion-item lines="full">

@@ -13,6 +13,8 @@ interface Question {
   selectedAnswer?: number; 
   image?: string;
   video?: string;
+  answered?: boolean; 
+  [key: string]: any;
 }
 
 @Component({
@@ -20,21 +22,25 @@ interface Question {
   templateUrl: './juego.page.html',
   styleUrls: ['./juego.page.scss'],
 })
-export class JuegoPage implements OnInit {
+export class JuegoPage implements OnInit  {
+  currentQuestionIndex!: number;
   answers: never[];
   text: string;
   correctAnswerIndex: number;
   selectedAnswer: undefined;
+
   
 
 
-  constructor() {
+  constructor(private alertController: AlertController) {
     this.text = '';
     this.answers = [];
     this.correctAnswerIndex = -1;
     this.selectedAnswer = undefined;
   }
- 
+    
+  
+  
 
     public questions: Question[] = [
       {
@@ -153,11 +159,43 @@ export class JuegoPage implements OnInit {
       }
     }
 
-  
+    async showResult() {
+      let correctAnswers = 0;
+      for (let i = 0; i < this.questions.length; i++) {
+        if (this.questions[i].correctAnswer === this.questions[i].selectedAnswer) {
+          correctAnswers++;
+        }
+      }
+      const alert = await this.alertController.create({
+        header: 'Resultado',
+        message: `Respondiste correctamente ${correctAnswers} de ${this.questions.length} preguntas`,
+        buttons: ['OK']
+      });
+      await alert.present();
+    }
+
+    selectAnswer(question: Question, option: number) {
+      question.selectedAnswer = option;
+      if (this.questions.every(q => q.selectedAnswer !== undefined)) {
+        this.showResult();
+      }
+    }
+
+ onAnswerSelected() {
+  this.questions.forEach(question => {
+    if (question.selectedAnswer !== undefined) {
+      question.answered = true;
+    }
+  });
+}
+
+
+
+    
   
   ngOnInit() {
         
-      //contenido
+    this.currentQuestionIndex = 0;
        
      }
     }

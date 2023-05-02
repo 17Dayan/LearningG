@@ -1,47 +1,86 @@
 import { Component, OnInit } from '@angular/core';
+import { type } from 'os';
+
+type word = {
+  original:string;
+  scrambled: string;
+  hint : string;
+};
 
 @Component({
   selector: 'app-juego2',
   templateUrl: './juego2.page.html',
   styleUrls: ['./juego2.page.scss'],
+
 })
 export class Juego2Page implements OnInit {
 
-  word!: string;
-  hint!: string;
+  word: word = { original: '', scrambled: '', hint: '' };
+  hint: string = '';
   letters: string[] = [];
   inputColors: string[] = [];
   wrongLetters: string = '';
-  guessesLeft!: number;
-  guess!: string;
+  guessesLeft: number = 0;
+  guess: string = '';
   hiddenLetters: string[] = [];
+  hintVisible: boolean = false;
   
   constructor() {
     this.reset();
   }
   
   reset() {
-    this.word = this.generateWord();
-    this.hint = this.generateHint();
-    this.letters = this.word.split('');
-    this.hiddenLetters = Array(this.word.length).fill(' ');
-    this.inputColors = Array(this.word.length).fill('light');
+    const generatedWord = this.generateWord();
+    this.word = {
+      original: generatedWord.original,
+      scrambled: generatedWord.scrambled,
+      hint: this.generateHint(),
+    };
+    this.letters = this.word.original.split('');
+    this.hiddenLetters = Array(this.word.original.length).fill(' ');
+    this.inputColors = Array(this.word.original.length).fill('light');
     this.wrongLetters = '';
+    this.hint = '';
     this.guessesLeft = 6;
     this.guess = '';
+    this.hintVisible = false;
   }
-  
-  generateWord(): string {
-    const words: string[] = ['apple', 'banana', 'cherry', 'grape', 'lemon', 'orange', 'peach', 'pear', 'pineapple', 'strawberry'];
-    const randomIndex: number = Math.floor(Math.random() * words.length);
-    return words[randomIndex];
+  generateWord(): { original: string; scrambled: string } {
+    const word: string[] = [
+      'monografia',
+      'cogrado',
+      'investigacion-creacion',
+      'internacional',
+      'seminarios',
+      'innovacion',
+      'cuarenta',
+      'ensayo',
+    ];
+    const randomIndex: number = Math.floor(Math.random() * word.length);
+    const originalWord = word[randomIndex];
+    const scrambledWord = originalWord
+      .split('')
+      .sort(() => Math.random() - 0.5)
+      .join('');
+    return { original: originalWord, scrambled: scrambledWord };
   }
-  
+
   generateHint(): string {
-    const hints: string[] = ['A popular fruit', 'Yellow and curved', 'A small red fruit', 'A small sweet fruit', 'Sour and citrusy', 'A citrus fruit', 'A juicy fruit', 'A pear-shaped fruit', 'A tropical fruit', 'A red, juicy fruit'];
-    const randomIndex: number = Math.floor(Math.random() * hints.length);
-    return hints[randomIndex];
+    const hint: string[] = [
+      'Fomenta la investigación académica',
+      'Título obtenido al finalizar una carrera universitaria',
+      'Proceso creativo en el que se realiza investigación',
+      'Relativo a varias naciones',
+      'Sesiones de formación',
+      'Introducción de novedades',
+      'Cantidad numérica',
+      'Trabajo escrito que se desarrolla a partir de un tema específico',
+    ];
+    const randomIndex: number = Math.floor(Math.random() * hint.length);
+    return hint[randomIndex];
   }
+  
+ 
   
   checkGuess(): void {
     const guessedLetter = this.guess.toLowerCase();
@@ -50,7 +89,7 @@ export class Juego2Page implements OnInit {
       if (this.letters[i] === guessedLetter) {
         found = true;
         this.inputColors[i] = 'dark';
-        this.hiddenLetters[i] = this.letters[i];
+        this.hiddenLetters[i] = this.word.original[i];
       }
     }
   
