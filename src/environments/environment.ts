@@ -4,12 +4,20 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 export const environment = {
-  production: false,
-  firebaseConfig:{
-   
-  }
+   production: false,
+   firebase: {
+    apiKey: "AIzaSyCl6cLeG_jc0sqfK6EH7RulU4ZS1gbsSw0",
+    authDomain: "app-grado.firebaseapp.com",
+    projectId: "app-grado",
+    storageBucket: "app-grado.appspot.com",
+    messagingSenderId: "482724701067",
+    appId: "1:482724701067:web:ec305a7f54538c0d27858e",
+    measurementId: "G-G1YCV2VS1V"
+   }
   
 };
+
+// Initialize Firebase
 
 
 /*

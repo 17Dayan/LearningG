@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
-
+import { AuthService } from 'src/app/auth.service';
+import { User } from 'firebase/auth';
+import { FirebaseError } from 'firebase/app';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -9,16 +11,10 @@ import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
 })
 export class LoginPage implements OnInit {
 
- 
- 
-  email!: string;
-  password!: string;
-  errormesage!: string;
   loginForm!: FormGroup;
+  errorMessage: string = '';
 
-
-  constructor(private router: Router, private fb: FormBuilder) {}
-  
+  constructor(private authService: AuthService, private router: Router, private fb: FormBuilder) {}
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -26,6 +22,18 @@ export class LoginPage implements OnInit {
       password: ['', Validators.required]
     });
   }
+
+  googleSignIn() {
+    this.authService.googleSignIn()
+      .then(() => {
+        this.router.navigate(['/modalidad']);
+      })
+      .catch((error) => {
+        console.log(error);
+        this.errorMessage = error.message;
+      });
+  }
+  
 
   login() {
     const email = this.loginForm.value.email;
@@ -49,6 +57,4 @@ export class LoginPage implements OnInit {
     this.router.navigate(['/login']); // Redirigir al usuario a la página de login
   }
   
-
 }
-
