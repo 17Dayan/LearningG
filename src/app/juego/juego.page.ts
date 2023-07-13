@@ -75,7 +75,7 @@ export class JuegoPage implements OnInit  {
       },
       {
         question: '¿Cuál es la opcion disponible para los estudiantes vinculados a los diferentes semilleros de investigación en el marco de convocatorias de jóvenes investigadores y/o proyectos de investigación liderados por la institución o una entidad aliada? ',
-        video: '../../assets/videos/investigacion.mp4',
+        image: '../../assets/img/preguntainvest.jpg',
         option1: 'Pasantía de investigación.',
         option2: 'Pasantías nacionales e internacionales.',
         option3: 'Investigación-creación o de creación.',
@@ -85,7 +85,7 @@ export class JuegoPage implements OnInit  {
       },
       {
         question: 'Para esta modalidad aplican: Obra, Evento artístico, Espectáculo escénico, Piezas sonoras,Producto, Diseño, Artefacto, Objetos plásticos visuales. ¿Cual es la opcion correcta?.',
-        video: '../../assets/videos/creacion.mp4',
+        image: '../../assets/img/preguntacreacion.jpg',
         option1: 'Investigación-creación o de creación.',
         option2: 'Seminario de actualización y perfeccionamiento en ciencia, tecnología e innovación.',
         option3: 'Pasantía de investigación.',
@@ -115,7 +115,7 @@ export class JuegoPage implements OnInit  {
       },
       {
         question: '¿Cuál es una de las condiciones necesarias para acceder al Programa de Postgrado, también conocido como "co-grado"?',
-        video: '../../assets/videos/loadcogrado.mp4',
+        image: '../../assets/img/porcentaje.jpg',
         option1: 'Aplicar a la realidad empresarial los conocimientos, habilidades y destrezas aprendidas',
         option2: 'Desarrollar habilidades de comunicación. ',
         option3: 'Plan de trabajo. ',
@@ -125,7 +125,7 @@ export class JuegoPage implements OnInit  {
       },
       {
         question: '¿Cuál es la duración mínima requerida para que un estudiante pueda participar en el Seminario de internacionalización?',
-        video: '../../assets/videos/horas.mp4',
+        image: '../../assets/img/hora.jpg',
         option1: '60 horas.',
         option2: '45 semanas.',
         option3: '40 horas. ',

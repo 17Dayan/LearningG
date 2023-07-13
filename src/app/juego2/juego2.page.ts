@@ -77,7 +77,8 @@ export class Juego2Page implements OnInit {
       'Trabajo escrito que se desarrolla a partir de un tema específico',
     ];
     const randomIndex: number = Math.floor(Math.random() * hint.length);
-    return hint[randomIndex];
+  const selectedHint = hint[randomIndex];
+  return selectedHint;
   }
   
  
@@ -105,7 +106,7 @@ export class Juego2Page implements OnInit {
       this.wrongLetters += guessedLetter;
       if (this.guessesLeft === 0) {
         // Sin intentos restantes
-        this.showAlert('¡Perdiste!', `La palabra era "${this.word}".`);
+        this.showAlert('¡Perdiste!', `La palabra era "${this.word.original}".`);
       }
     }
   
